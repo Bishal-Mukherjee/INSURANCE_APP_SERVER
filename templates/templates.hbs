@@ -1,0 +1,35 @@
+<html>
+  <body>
+
+    {{#each obj as |value key|}}
+      <table class="table">
+        {{#if value.header}}
+          <tr style="height: 2rem;">
+            <td class="td bold">{{value.header.label}}</td>
+            <td class="td bold">{{value.header.value}}</td>
+          </tr>
+          {{#each value.rows as |item index|}}
+            <tr>
+              <td class="td">{{item.label}}</td>
+              <td class="td">{{item.value}}</td>
+            </tr>
+          {{/each}}
+        {{else}}
+          {{#each value as |item index|}}
+            <tr>
+              <td class="td bold">{{item.label}}</td>
+              <td class="td">{{item.value}}</td>
+            </tr>
+          {{/each}}
+        {{/if}}
+      </table>
+    {{/each}}
+
+  </body>
+  <style>
+    body { padding: 5rem; } .table { width: 100%; border: 1.5px solid black;
+    border-collapse: collapse; margin-top: 1rem; border-radius: 5px; } .td {
+    border: 1.5px solid black; border-collapse: collapse; } .bold{ font-weight:
+    700 }
+  </style>
+</html>
